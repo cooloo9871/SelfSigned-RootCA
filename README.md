@@ -1,1 +1,1 @@
-自遷憑證
+Private CA Signed Certificate
