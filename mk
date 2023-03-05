@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dns=$2
+domain=$2
 ip=$3
 
 help()
@@ -10,7 +10,7 @@ Usage: mk [OPTIONS]
 
 Available options:
 
-create    create [DNS] [IP]
+create    create [domain] [IP]
 delete    delete cert
 test      test
 EOF
@@ -27,7 +27,7 @@ openssl genrsa -out cert-key.pem 4096
 
 openssl req -new -sha256 -subj "/CN=example" -key cert-key.pem -out cert.csr
 
-echo -e "subjectAltName=DNS:${dns},IP:${ip}\nextendedKeyUsage = serverAuth" > extfile.cnf
+echo -e "subjectAltName=DNS:${domain},IP:${ip}\nextendedKeyUsage = serverAuth" > extfile.cnf
 
 openssl x509 -req -sha256 -days 365 -passin pass:password -in cert.csr -CA ca.pem -CAkey ca-key.pem -out cert.pem -extfile extfile.cnf -CAcreateserial
 }
