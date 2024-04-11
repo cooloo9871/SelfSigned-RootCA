@@ -1,4 +1,4 @@
-This script is used to create Private CA Signed Certificate
+# This script is used to create Private CA Signed Certificate
 
 ## Script usage
 ```
@@ -12,7 +12,7 @@ delete    delete cert
 test      test
 ```
 
-## example
+## Example
 1. test.example.com is the domain to register.
 2. 192.168.11.90 is the ip that the domain test.example.com resolves to.
 ```
