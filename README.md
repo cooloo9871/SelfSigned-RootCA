@@ -12,7 +12,7 @@ Available options:
 
 create    create [domain] [IP]
 delete    delete all cert.
-test      verify the signature and validity of a digital certificate.
+test      verify the signature and validity of digital certificate.
 expiry    check the expiration time of certificate.
 ```
 
