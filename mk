@@ -11,8 +11,9 @@ Usage: mk [OPTIONS]
 Available options:
 
 create    create [domain] [IP]
-delete    delete cert
-test      test
+delete    delete all cert.
+test      verify the signature and validity of a digital certificate.
+expiry    check the expiration time of certificate.
 EOF
   exit
 }
@@ -47,6 +48,14 @@ ts()
 openssl verify -CAfile ca.pem -verbose cert.pem
 }
 
+ex()
+{
+for file in ca.pem cert.pem; do
+  expiry=$(openssl x509 -enddate -noout -in "$file" | cut -d= -f 2-)
+  filename=$(basename "$file")
+  printf "%-30s %s\n" "$filename:" "$expiry"
+done
+}
 
 case $1 in
   create)
@@ -61,6 +70,9 @@ case $1 in
   ;;
   test)
     ts
+  ;;
+  expiry)
+    ex
   ;;
   *)
     help
