@@ -11,8 +11,9 @@ Usage: mk [OPTIONS]
 Available options:
 
 create    create [domain] [IP]
-delete    delete cert
-test      test
+delete    delete all cert.
+test      verify the signature and validity of a digital certificate.
+expiry    check the expiration time of certificate.
 ```
 
 ## Example
