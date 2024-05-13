@@ -37,9 +37,9 @@ de()
 {
 rm ca-key.pem ca.pem ca.srl cert.csr cert-key.pem cert.pem extfile.cnf &>/dev/null
 if [ "$?" == "0" ];then
-  echo "delete all cert ok!"
+  echo "Deleted all certificates!"
 else
-  echo "delete cert fail,please check!"
+  echo "Deleted certificates fail,please check!"
 fi
 }
 
