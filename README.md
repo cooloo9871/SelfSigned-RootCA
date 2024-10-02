@@ -1,7 +1,7 @@
 # This script is used to create Private CA Signed Certificate
 
 ```
-git clone https://github.com/cooloo9871/SelfSigned-RootCA.git;cd SelfSigned-RootCA
+wget https://raw.githubusercontent.com/cooloo9871/SelfSigned-RootCA/refs/heads/master/mk
 ```
 ## Script usage
 ```
