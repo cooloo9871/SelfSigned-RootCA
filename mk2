@@ -30,11 +30,13 @@ openssl req -new -sha256 -subj "/CN=example" -key cert-key.pem -out cert.csr
 echo -e "subjectAltName=DNS:${domain}\nextendedKeyUsage = serverAuth" > extfile.cnf
 
 openssl x509 -req -sha256 -days 365 -passin pass:password -in cert.csr -CA ca.pem -CAkey ca-key.pem -out cert.pem -extfile extfile.cnf -CAcreateserial
+
+openssl pkey -in ca-key.pem -out ca-key-decrypted.pem -passin pass:password
 }
 
 de()
 {
-rm ca-key.pem ca.pem ca.srl cert.csr cert-key.pem cert.pem extfile.cnf &>/dev/null
+rm ca-key.pem ca.pem ca.srl cert.csr cert-key.pem cert.pem extfile.cnf ca-key-decrypted.pem &>/dev/null
 if [ "$?" == "0" ];then
   echo "Deleted all certificates!"
 else
